@@ -1,0 +1,32 @@
+--- apertium-is-sv-0.1.0/configure.ac.orig	2013-09-05 20:41:36.000000000 +0200
++++ apertium-is-sv-0.1.0/configure.ac	2015-12-26 08:22:16.571497754 +0100
+@@ -23,8 +23,13 @@
+       APERTIUM_VER=31
+     ],
+     [
+-      PKG_CHECK_MODULES(APERTIUM, apertium-3.2 >= 3.2.0)
++      PKG_CHECK_MODULES(APERTIUM, apertium-3.2 >= 3.2.0,
++      [
+       APERTIUM_VER=32
++      ],
++      [PKG_CHECK_MODULES(APERTIUM, apertium >= required_apertium_version)
++       APERTIUM_VER=33+
++      ])
+     ])
+   ])
+   AC_SUBST(APERTIUM_VER)
+@@ -42,8 +47,13 @@
+       LTTOOLBOX_VER=31
+     ],
+     [
+-      PKG_CHECK_MODULES(LTTOOLBOX, lttoolbox-3.2 >= 3.2.0)
++      PKG_CHECK_MODULES(LTTOOLBOX, lttoolbox-3.2 >= 3.2.0,
++      [
+       LTTOOLBOX_VER=32
++      ],
++      [PKG_CHECK_MODULES(LTTOOLBOX, lttoolbox >= required_lttoolbox_version)
++       LTTOOLBOX_VER=33+
++      ])
+     ])
+   ])
+   AC_SUBST(LTTOOLBOX_VER)
